@@ -7,6 +7,7 @@
 package deps
 
 import (
+	"fmt"
 	"github.com/HiWay-Media/hwm-go-utils/nats_helper"
 	"github.com/HiWay-Media/nats-check-availability/app"
 	"github.com/HiWay-Media/nats-check-availability/app/jetstream"
@@ -41,6 +42,10 @@ func InjectApp(config *env.Configuration, logger *zap.SugaredLogger) (*app.App, 
 
 func NewNatsClient(configuration *env.Configuration, logger *zap.SugaredLogger) (*nats.EncodedConn, error) {
 	nc, err := nats_helper.NewNatsConn(configuration.NATS_SERVERS, logger)
+	if configuration.NATS_SERVERS == "" {
+		logger.Fatalf("NATS_SERVERS is empty")
+		return nil, fmt.Errorf("NATS_SERVERS is empty")
+	}
 	if err != nil {
 		logger.Fatalf("failed to connect to nats server %s: %v", configuration.NATS_SERVERS, err)
 		return nil, err

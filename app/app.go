@@ -1,23 +1,25 @@
 package app
 
 import (
-	"github.com/HiWay-Media/nats-check-availability/app/subscriber"
 	js_subscriber "github.com/HiWay-Media/nats-check-availability/app/jetstream"
+	"github.com/HiWay-Media/nats-check-availability/app/subscriber"
 	"github.com/HiWay-Media/nats-check-availability/env"
 	"github.com/go-fuego/fuego"
+	"github.com/nats-io/nats.go"
 	"github.com/rs/cors"
 
 	"go.uber.org/zap"
 )
 
 type App struct {
-	NATSSubscriber 		*subscriber.NatsSubscriber
+	nc                  *nats.EncodedConn
+	NATSSubscriber      *subscriber.NatsSubscriber
 	JetStreamSubscriber *js_subscriber.JetStreamSubscriber
 }
 
 func (a *App) Routes(config *env.Configuration, logger *zap.SugaredLogger) *fuego.Server {
 	logger.Infof(`
-		 v1.0
+		nats-check-availibity v1.0
 	`)
 	s := fuego.NewServer(
 		fuego.WithAddr("0.0.0.0:8080"),

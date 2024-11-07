@@ -28,7 +28,7 @@ func (s *NatsSubscriber) Subscribe() {
 	for {
 		_, err := s.nc.Subscribe(s.configuration.NATS_DEFAULT_STREAM, s.handle)
 		if err != nil {
-			s.logger.Errorf("failed to subscribe to encoding progress topic!")
+			s.logger.Errorf("[NatsSubscriber]failed to subscribe to nats subject: %s!", s.configuration.NATS_DEFAULT_STREAM)
 			time.Sleep(time.Second * 3)
 			continue
 		}
