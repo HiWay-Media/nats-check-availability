@@ -7,6 +7,7 @@ import (
 	"github.com/HiWay-Media/hwm-go-utils/nats_helper"
 	"github.com/HiWay-Media/nats-check-availability/app"
 	"github.com/HiWay-Media/nats-check-availability/app/subscriber"
+	js_subscriber "github.com/HiWay-Media/nats-check-availability/app/jetstream"
 	"github.com/HiWay-Media/nats-check-availability/env"
 	"github.com/google/wire"
 	"github.com/nats-io/nats.go"
@@ -18,9 +19,10 @@ func InjectApp(config *env.Configuration, logger *zap.SugaredLogger) (*app.App, 
 	wire.Build(
 		//brokers
 		NewNatsClient,
-		//NewNatsJetStreamClient,
+		NewNatsJetStreamClient,
 		//subscribers
 		subscriber.NewNatsSubscriber,
+		js_subscriber.NewJetstreamSubscriber,
 		// wire
 		wire.Struct(new(app.App), "*"),
 	)

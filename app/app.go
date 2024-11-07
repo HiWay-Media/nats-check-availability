@@ -2,6 +2,7 @@ package app
 
 import (
 	"github.com/HiWay-Media/nats-check-availability/app/subscriber"
+	js_subscriber "github.com/HiWay-Media/nats-check-availability/app/jetstream"
 	"github.com/HiWay-Media/nats-check-availability/env"
 	"github.com/go-fuego/fuego"
 	"github.com/rs/cors"
@@ -10,7 +11,8 @@ import (
 )
 
 type App struct {
-	NATSSubscriber *subscriber.NatsSubscriber
+	NATSSubscriber 		*subscriber.NatsSubscriber
+	JetStreamSubscriber *js_subscriber.NatsSubscriber
 }
 
 func (a *App) Routes(config *env.Configuration, logger *zap.SugaredLogger) *fuego.Server {
