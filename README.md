@@ -10,3 +10,15 @@ This repository provides a utility to check the availability of NATS (Neural Aut
 - `NATS_DEFAULT_CLUSTER`: Default cluster name to be used.
 - `NATS_DEFAULT_STREAM`: Default stream name for publishing or subscribing.
 
+env example: 
+
+```env
+LOG_LEVEL=debug
+APP_ENV=LOCAL
+NATS_SERVERS=nats://localhost:4222
+NATS_JETSTREAM_SERVERS=
+NATS_REPLICA_SIZE=3
+NATS_DEFAULT_CLUSTER=default
+NATS_DEFAULT_STREAM=test
+
+```
