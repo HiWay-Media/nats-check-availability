@@ -14,7 +14,7 @@ func main() {
 	if err != nil {
 		logger.Fatal(err)
 	}
-
-	err = app.Routes(logger).Run()
+	//
+	err = app.Routes(config, logger).Run()
 	logger.Error(err)
 }
