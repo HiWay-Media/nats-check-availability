@@ -9,7 +9,7 @@ import (
 )
 
 type App struct {
-	NatsSubscriber subscriber.NatsSubscriber
+	NATSSubscriber subscriber.NatsSubscriber
 }
 
 func (a *App) Routes(logger *zap.SugaredLogger) *fuego.Server {
@@ -30,7 +30,7 @@ func (a *App) Routes(logger *zap.SugaredLogger) *fuego.Server {
 	fuego.Get(s, "/health", func(ctx fuego.ContextNoBody) (string, error) {
 		return "OK", nil
 	})
-	go a.NatsSubscriber.Subscribe()
+	//go a.NatsSubscriber.Subscribe()
 	//
 	return s
 }
