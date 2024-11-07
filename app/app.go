@@ -2,6 +2,7 @@ package app
 
 import (
 	"github.com/HiWay-Media/nats-check-availability/app/subscriber"
+	"github.com/HiWay-Media/nats-check-availability/env"
 	"github.com/go-fuego/fuego"
 	"github.com/rs/cors"
 
@@ -12,7 +13,7 @@ type App struct {
 	NATSSubscriber *subscriber.NatsSubscriber
 }
 
-func (a *App) Routes(logger *zap.SugaredLogger) *fuego.Server {
+func (a *App) Routes(config *env.Configuration, logger *zap.SugaredLogger) *fuego.Server {
 	logger.Infof(`
 		start nats-check-availability v1.0
 	`)

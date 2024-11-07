@@ -10,7 +10,7 @@ func main() {
 	//
 	config := env.GetEnvConfig()
 	logger := app_log.NewLogger(config.LogLevel)
-	app, err := deps.InjectApp(logger)
+	app, err := deps.InjectApp(config, logger)
 	if err != nil {
 		logger.Fatal(err)
 	}
