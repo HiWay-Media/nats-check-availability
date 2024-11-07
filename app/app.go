@@ -12,7 +12,7 @@ import (
 
 type App struct {
 	NATSSubscriber 		*subscriber.NatsSubscriber
-	JetStreamSubscriber *js_subscriber.NatsSubscriber
+	JetStreamSubscriber *js_subscriber.JetStreamSubscriber
 }
 
 func (a *App) Routes(config *env.Configuration, logger *zap.SugaredLogger) *fuego.Server {
