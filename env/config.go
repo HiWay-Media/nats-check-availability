@@ -19,6 +19,10 @@ type Configuration struct {
 	DbIdleConn                	string `env:"DB_IDLE_CONN"`
 	DbMaxConn                 	string `env:"DB_MAX_CONN"`
 	DbName                    	string `env:"DB_NAME"`
+	NATS_SERVERS                string `env:"NATS_SERVER"`
+	NATS_JETSTREAM_SERVERS      string `env:"NATS_JETSTREAM_SERVERS"`
+	NATS_REPLICA_SIZE      		string `env:"NATS_REPLICA_SIZE"`
+	NATS_DEFAULT_CLUSTER        string `env:"NATS_DEFAULT_CLUSTER"`
 }
 
 func GetEnvConfig() *Configuration {

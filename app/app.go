@@ -8,7 +8,9 @@ import (
 	"go.uber.org/zap"
 )
 
-type App struct {}
+type App struct {
+	
+}
 
 func (a *App) Routes(logger *zap.SugaredLogger) *fuego.Server {
     s := fuego.NewServer(

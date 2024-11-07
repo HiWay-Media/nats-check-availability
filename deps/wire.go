@@ -12,10 +12,20 @@ import (
 
 func InjectApp(config *env.Configuration, logger *zap.SugaredLogger) (*app.App, error) {
 	wire.Build(
-
+		//brokers
+		NewNatsClient,
 		// wire
 		wire.Struct(new(app.App), "*"),
 	)
 
 	return nil, nil
+}
+
+func NewNatsClient(configuration *env.Configuration, logger *zap.SugaredLogger) (*nats.EncodedConn, error) {
+	nc, err = nats_helper.NewNatsConn(configuration)
+	if err != nil {
+		logger.Fatalf("failed to connect to nats server %s: %v", configuration.NATS_SERVER, err)
+		return nil, err
+	}
+	return nc, nil
 }
