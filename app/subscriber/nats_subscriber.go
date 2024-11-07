@@ -20,7 +20,7 @@ func NewNatsSubscriber(configuration *env.Configuration, logger *zap.SugaredLogg
 		logger:        logger,
 		nc:            nc,
 	}
-	if config.NATS_CHECK_PUB_SUB{
+	if configuration.NATS_CHECK_PUB_SUB{
 		go s.Subscribe()
 	}
 	return s
