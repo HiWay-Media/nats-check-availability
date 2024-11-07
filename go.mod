@@ -15,7 +15,13 @@ require (
 )
 
 require (
-	github.com/HiWay-Media/hwm-go-utils v0.6.80 // indirect
+	github.com/klauspost/compress v1.17.2 // indirect
+	github.com/nats-io/nkeys v0.4.7 // indirect
+	github.com/nats-io/nuid v1.0.1 // indirect
+)
+
+require (
+	github.com/HiWay-Media/hwm-go-utils v0.6.80
 	github.com/gabriel-vasile/mimetype v1.4.4 // indirect
 	github.com/getkin/kin-openapi v0.126.0 // indirect
 	github.com/go-openapi/jsonpointer v0.21.0 // indirect
@@ -33,6 +39,7 @@ require (
 	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
+	github.com/nats-io/nats.go v1.31.0
 	github.com/perimeterx/marshmallow v1.1.5 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
 	golang.org/x/crypto v0.25.0 // indirect

@@ -1,19 +1,24 @@
 package app
 
 import (
+	"fmt"
+
+	"github.com/HiWay-Media/nats-check-availability/app/subscriber"
 	"github.com/go-fuego/fuego"
 	"github.com/rs/cors"
-	
-	
+
 	"go.uber.org/zap"
 )
 
 type App struct {
-	
+	NatsSubscriber subscriber.NatsSubscriber
 }
 
 func (a *App) Routes(logger *zap.SugaredLogger) *fuego.Server {
-    s := fuego.NewServer(
+	fmt.Println(`
+		start nats-check-availability v1.0
+	`)
+	s := fuego.NewServer(
 		fuego.WithAddr("0.0.0.0:8080"),
 		fuego.WithCorsMiddleware(cors.New(cors.Options{
 			AllowedOrigins: []string{"*"},
