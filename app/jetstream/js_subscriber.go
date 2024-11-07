@@ -22,12 +22,14 @@ func NewJetstreamSubscriber(configuration *env.Configuration, logger *zap.Sugare
 		logger:        logger,
 		js:            js,
 	}
-	go s.Subscribe()
+	if config.NATS_CHECK_JETSTREAM{
+		go s.Subscribe()
+	}
 	return s
 }
 
 func (s *JetStreamSubscriber) Subscribe() {
+	s.logger.Debugf("[JetStreamSubscriber] Subscribe %v", s)
 	for {
-		s.logger.Debugf("Subscribe %v", s)
 	}
 }
