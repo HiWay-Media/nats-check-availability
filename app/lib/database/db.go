@@ -5,7 +5,7 @@ import (
 	"log"
 	"strconv"
 
-	"github.com/Allan-Nava/go-wire-fuego-scafffold/env"
+	"github.com/HiWay-Media/nats-check-availability/env"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )

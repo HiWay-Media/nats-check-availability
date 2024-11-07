@@ -7,8 +7,8 @@
 package deps
 
 import (
-	"github.com/Allan-Nava/go-wire-fuego-scafffold/app"
-	"github.com/Allan-Nava/go-wire-fuego-scafffold/env"
+	"github.com/HiWay-Media/nats-check-availability/app"
+	"github.com/HiWay-Media/nats-check-availability/env"
 	"go.uber.org/zap"
 )
 

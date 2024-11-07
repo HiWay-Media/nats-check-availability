@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	app_log "github.com/Allan-Nava/go-wire-fuego-scafffold/app/lib/log"
-	"github.com/Allan-Nava/go-wire-fuego-scafffold/deps"
-	"github.com/Allan-Nava/go-wire-fuego-scafffold/env"
+	app_log "github.com/HiWay-Media/nats-check-availability/app/lib/log"
+	"github.com/HiWay-Media/nats-check-availability/deps"
+	"github.com/HiWay-Media/nats-check-availability/env"
 )
 
 func main() {

@@ -1,5 +1,5 @@
 # Go Wire Fuego Scaffold
-[![Go build](https://github.com/Allan-Nava/go-wire-fuego-scafffold/actions/workflows/go-build.yml/badge.svg)](https://github.com/Allan-Nava/go-wire-fuego-scafffold/actions/workflows/go-build.yml)
+[![Go build](https://github.com/HiWay-Media/nats-check-availability/actions/workflows/go-build.yml/badge.svg)](https://github.com/HiWay-Media/nats-check-availability/actions/workflows/go-build.yml)
 
 
 Generate scaffold wire with fuego webserver project layout for Go.

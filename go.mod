@@ -1,4 +1,4 @@
-module github.com/Allan-Nava/go-wire-fuego-scafffold
+module github.com/HiWay-Media/nats-check-availability
 
 go 1.22.2
 
