@@ -14,13 +14,13 @@ type NatsSubscriber struct {
 	nc            *nats.EncodedConn
 }
 
-func NewNatsSubscriber(nc *nats.EncodedConn, configuration *env.Configuration, logger *zap.SugaredLogger) *NatsSubscriber {
+func NewNatsSubscriber(configuration *env.Configuration, logger *zap.SugaredLogger, nc *nats.EncodedConn) *NatsSubscriber {
 	s := &NatsSubscriber{
 		configuration: configuration,
 		logger:        logger,
 		nc:            nc,
 	}
-	//go s.Subscribe()
+	go s.Subscribe()
 	return s
 }
 

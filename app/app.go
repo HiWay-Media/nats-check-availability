@@ -9,7 +9,7 @@ import (
 )
 
 type App struct {
-	NATSSubscriber subscriber.NatsSubscriber
+	NATSSubscriber *subscriber.NatsSubscriber
 }
 
 func (a *App) Routes(logger *zap.SugaredLogger) *fuego.Server {
