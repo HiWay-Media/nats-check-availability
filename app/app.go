@@ -1,8 +1,6 @@
 package app
 
 import (
-	"fmt"
-
 	"github.com/HiWay-Media/nats-check-availability/app/subscriber"
 	"github.com/go-fuego/fuego"
 	"github.com/rs/cors"
@@ -15,7 +13,7 @@ type App struct {
 }
 
 func (a *App) Routes(logger *zap.SugaredLogger) *fuego.Server {
-	fmt.Println(`
+	logger.Infof(`
 		start nats-check-availability v1.0
 	`)
 	s := fuego.NewServer(
@@ -32,6 +30,7 @@ func (a *App) Routes(logger *zap.SugaredLogger) *fuego.Server {
 	fuego.Get(s, "/health", func(ctx fuego.ContextNoBody) (string, error) {
 		return "OK", nil
 	})
-
+	go a.NatsSubscriber.Subscribe()
+	//
 	return s
 }

@@ -19,7 +19,7 @@ func InjectApp(config *env.Configuration, logger *zap.SugaredLogger) (*app.App, 
 		//brokers
 		NewNatsClient,
 		//NewNatsJetStreamClient,
-		//subscriber
+		//subscribers
 		subscriber.NewNatsSubscriber,
 		// wire
 		wire.Struct(new(app.App), "*"),

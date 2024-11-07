@@ -20,7 +20,7 @@ func NewNatsSubscriber(nc *nats.EncodedConn, configuration *env.Configuration, l
 		logger:        logger,
 		nc:            nc,
 	}
-	go s.Subscribe()
+	//go s.Subscribe()
 	return s
 }
 
