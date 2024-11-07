@@ -5,14 +5,12 @@ import (
 	"github.com/HiWay-Media/nats-check-availability/app/subscriber"
 	"github.com/HiWay-Media/nats-check-availability/env"
 	"github.com/go-fuego/fuego"
-	"github.com/nats-io/nats.go"
 	"github.com/rs/cors"
 
 	"go.uber.org/zap"
 )
 
 type App struct {
-	nc                  *nats.EncodedConn
 	NATSSubscriber      *subscriber.NatsSubscriber
 	JetStreamSubscriber *js_subscriber.JetStreamSubscriber
 }

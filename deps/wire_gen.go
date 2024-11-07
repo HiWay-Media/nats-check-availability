@@ -42,6 +42,7 @@ func InjectApp(config *env.Configuration, logger *zap.SugaredLogger) (*app.App, 
 
 func NewNatsClient(configuration *env.Configuration, logger *zap.SugaredLogger) (*nats.EncodedConn, error) {
 	nc, err := nats_helper.NewNatsConn(configuration.NATS_SERVERS, logger)
+	logger.Infof("NATS_SERVERS: %s", configuration.NATS_SERVERS, configuration)
 	if configuration.NATS_SERVERS == "" {
 		logger.Fatalf("NATS_SERVERS is empty")
 		return nil, fmt.Errorf("NATS_SERVERS is empty")
