@@ -1,0 +1,31 @@
+services:
+  nats-check:
+    build: .
+    environment:
+      - NATS_SERVERS="nats://local:42222"
+      - NATS_REPLICA_SIZE="3"
+      - NATS_DEFAULT_CLUSTER="default"
+      - NATS_DEFAULT_STREAM="test"
+    networks: ["nats"]
+  #
+  nats-jetstream-check:
+    build: .
+    environment:
+      - NATS_SERVERS="nats://local:42222"
+      - NATS_REPLICA_SIZE="3"
+      - NATS_DEFAULT_CLUSTER="defaukt"
+      - NATS_DEFAULT_STREAM="test"
+    networks: ["nats"]
+  #
+  nats-docker:nats:
+    image: nats
+    ports:
+      - "8222:8222"
+      - "4222:4222"
+    command: "--server_name NATS --cluster_name JSC --cluster nats://0.0.0.0:6222 --http_port 8222 -p 4222"
+    networks: ["nats"]
+#
+networks:
+  nats:
+    name: nats
+#
