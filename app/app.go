@@ -17,7 +17,7 @@ type App struct {
 
 func (a *App) Routes(config *env.Configuration, logger *zap.SugaredLogger) *fuego.Server {
 	logger.Infof(`
-		start nats-check-availability v1.0
+		 v1.0
 	`)
 	s := fuego.NewServer(
 		fuego.WithAddr("0.0.0.0:8080"),
