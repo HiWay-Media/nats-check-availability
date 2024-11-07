@@ -9,6 +9,7 @@ package deps
 import (
 	"github.com/HiWay-Media/hwm-go-utils/nats_helper"
 	"github.com/HiWay-Media/nats-check-availability/app"
+	"github.com/HiWay-Media/nats-check-availability/app/jetstream"
 	"github.com/HiWay-Media/nats-check-availability/app/subscriber"
 	"github.com/HiWay-Media/nats-check-availability/env"
 	"github.com/nats-io/nats.go"
@@ -24,8 +25,14 @@ func InjectApp(config *env.Configuration, logger *zap.SugaredLogger) (*app.App, 
 		return nil, err
 	}
 	natsSubscriber := subscriber.NewNatsSubscriber(config, logger, encodedConn)
+	jetStream, err := NewNatsJetStreamClient(encodedConn, logger, config)
+	if err != nil {
+		return nil, err
+	}
+	jetStreamSubscriber := js_subscriber.NewJetstreamSubscriber(config, logger, jetStream)
 	appApp := &app.App{
-		NATSSubscriber: natsSubscriber,
+		NATSSubscriber:      natsSubscriber,
+		JetStreamSubscriber: jetStreamSubscriber,
 	}
 	return appApp, nil
 }

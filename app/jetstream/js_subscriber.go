@@ -1,6 +1,7 @@
 package js_subscriber
 
 import (
+	"github.com/HiWay-Media/nats-check-availability/env"
 	"github.com/nats-io/nats.go/jetstream"
 	"go.uber.org/zap"
 )
@@ -15,8 +16,8 @@ type JetStreamSubscriber struct {
 	js            jetstream.JetStream
 }
 
-func NewJetstreamSubscriber(configuration *env.Configuration, logger *zap.SugaredLogger,  js jetstream.JetStream) *JetStreamSubscriber{
-    s := &JetStreamSubscriber{
+func NewJetstreamSubscriber(configuration *env.Configuration, logger *zap.SugaredLogger, js jetstream.JetStream) *JetStreamSubscriber {
+	s := &JetStreamSubscriber{
 		configuration: configuration,
 		logger:        logger,
 		js:            js,
@@ -25,9 +26,8 @@ func NewJetstreamSubscriber(configuration *env.Configuration, logger *zap.Sugare
 	return s
 }
 
-
 func (s *JetStreamSubscriber) Subscribe() {
 	for {
-        s.logger.Debugf("Subscribe %v", s)
-    }
+		s.logger.Debugf("Subscribe %v", s)
+	}
 }
